@@ -32,24 +32,19 @@ class Vendedor(
     nome: String,
     matricula: String,
     salario_base: Double,
-
+    var comissao: Double
 ): Funcionario(nome, matricula, salario_base) {
-    var comissao: Double = 0.0
-    
-    fun setComissaoVendedor(comissaoP: Double) {
-    	this.comissao = comissaoP
-    }
     
     override fun calculaSalario(): Double {
         return this.salario_base + this.comissao
     }
 }
 
+
 fun main() {
     var gerente = Gerente("Bife", "123453", 7500.0)
     var assistente = Assistente("Lucas", "2132132", 4500.0)
-    var vendedor = Vendedor("Julia", "3213123", 2000.0)
-    vendedor.setComissaoVendedor(500.0)
+    var vendedor = Vendedor("Julia", "3213123", 2000.0, 500.0)
     
     var salGerente = gerente.calculaSalario()
     var salAssistente = assistente.calculaSalario()
